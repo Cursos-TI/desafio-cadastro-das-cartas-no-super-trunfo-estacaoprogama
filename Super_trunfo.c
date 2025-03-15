@@ -1,14 +1,16 @@
-#include <stdio.h>
+#include <stdio.h> // incluindo a biblioteca padão de entrada e saída para uso do printf
 
-int main() {
-    char estado1;
+int main() {  // função principal,iniciando a execução do progama
+
+    // Delcara variáveis dos tipos "Char", "int" e "folat"
+    char estado1; 
     char  estado2;
     char codigocarta1[4];
     char codigocarta2[4];
     char cidade1[20];
     char cidade2[20];
-    int populacao1, populacao2, pontosturisticos1, pontosturisticos2; // Declara variaveis do tipo int
-    float area1, area2, pib1, pib2; // Declara variaveis do tipo float
+    int populacao1, populacao2, pontosturisticos1, pontosturisticos2; 
+    float area1, area2, pib1, pib2; 
 
     printf("Cadastro das Cartas\n");
 
