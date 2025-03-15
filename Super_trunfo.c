@@ -1,17 +1,22 @@
 #include <stdio.h>
 
 int main() {
-    char estado1, estado2, codigocarta1, codigocarta2, cidade1, cidade2; // Declara variaveis do tipo char
+    char estado1;
+    char  estado2;
+    char codigocarta1[4];
+    char codigocarta2[4];
+    char cidade1[20];
+    char cidade2[20];
     int populacao1, populacao2, pontosturisticos1, pontosturisticos2; // Declara variaveis do tipo int
     float area1, area2, pib1, pib2; // Declara variaveis do tipo float
 
     printf("Cadastro das Cartas\n");
 
     printf("Carta 1: \n");
-
+       
     printf("Digite uma letra de A a H referente ao estado: ");
-    scanf("%c", &estado1);
-    
+    scanf(" %c", &estado1);
+
     printf("Digite o código da carta: ");
     scanf("%s", &codigocarta1);
 
@@ -36,10 +41,10 @@ int main() {
     scanf(" %c", &estado2);
 
     printf("Digite o código da carta: ");
-    scanf("%s", &codigocarta2);
+    scanf("%s", codigocarta2);
 
     printf("Digite a Cidade: ");
-    scanf("%s", &cidade2);
+    scanf("%s", cidade2);
 
     printf("Digite a população: ");
     scanf("%d", &populacao2);
@@ -70,32 +75,13 @@ int main() {
     printf("Área: %f\n", area2);
     printf("PIB: %f\n", pib2);
     printf("Número de Pontos Turísticos: %d\n", pontosturisticos2);
+
+   
+
+    
     
 
     return 0;
     
-   
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
 }
-  
- 
