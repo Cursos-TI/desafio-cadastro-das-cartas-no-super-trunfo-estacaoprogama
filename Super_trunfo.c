@@ -109,7 +109,7 @@ int main() {  // função principal, necessária para iniciar a execução do pr
       sintaxe: printf("texto exibido na tela", lista de argumentos)*/
 
     printf("Carta 2: \n"); 
-
+  
     printf("Estado: %c\n", estado2);  /* "%c" representa o local onde será escrita a variável caractere "estado2" */
 
     printf("Código: %s\n", codigocarta2);  /* "%s" representa o local onde será escrita a variável caractere  "codigocarta2" */
