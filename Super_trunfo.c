@@ -8,6 +8,7 @@ int main() {  // função principal, necessária para iniciar a execução do pr
     char codigocarta2[4]; // Declara uma variável de caractere chamada "codigocarta2" com 4 caracteres para armazenar a identificação do código de uma carta.
     char cidade1[20];  // Declara uma variável de caractere chamada "cidade1" com 20 caracteres para armazenar a identificação de uma cidade.
     char cidade2[20];  // Declara uma variável de caractere chamada "cidade2" com 20 caracteres para armazenar a identificação de uma cidade.
+    
 
     /* Declara 4 variáveis inteiras chamada: "populacao1", "populacao2", "pontosturisticos1", "pontosturisticos2", respectivamente para a identificação
     de população e pontos turísticos com números inteiros.*/
@@ -18,8 +19,16 @@ int main() {  // função principal, necessária para iniciar a execução do pr
 
     float area1, area2, pib1, pib2; 
 
-    // função printf para exibir o texto formatado entre aspas na tela e "/n" para adicionar uma nova linha ao fim da mensagem.
+    // Declara variavel paca cálculo da densidade populacional.
 
+    float DensidadePopulacional1, DensidadePopulacional2;
+
+    // Declara variável para cálculo do PIB percapto.
+
+    float PibPercapta1, PibPercapta2; 
+
+    // função printf para exibir o texto formatado entre aspas na tela e "/n" para adicionar uma nova linha ao fim da mensagem.
+    
     printf("Cadastro das Cartas\n"); 
 
     printf("Carta 1: \n");
@@ -84,6 +93,19 @@ int main() {  // função principal, necessária para iniciar a execução do pr
     scanf("%d", &pontosturisticos2); /* função scanf utilizada para fazer a leitura de dados formatados via teclado.  (entrada de dados)
                                       O valor lido será armazenado no endereço da variável inteira chamada "pontosturisticos2". */
 
+
+    
+    DensidadePopulacional1 =  populacao1 / area1;
+
+    DensidadePopulacional2 = populacao2 / area2;
+
+    PibPercapta1 = pib1 / populacao1;
+
+    PibPercapta2 = pib2 / populacao2;
+    
+
+
+
     // função printf para exibir o texto formatado entre aspas na tela e "/n" para adicionar uma nova linha ao fim da mensagem.                     
                                        
     printf("Carta 1: \n");
@@ -99,11 +121,17 @@ int main() {  // função principal, necessária para iniciar a execução do pr
                                            
     printf("População: %d\n", populacao1); /* "%d" representa o local onde será escrita a variável inteira  "populacao1" */
                                             
-    printf("Área: %f\n", area1); /* "%f" representa o local onde será escrita a variável float  "area1"*/
+    printf("Área: %.2f km²\n", area1); /* "%f" representa o local onde será escrita a variável float  "area1"*/
                                 
-    printf("PIB: %f\n", pib1); /* "%f" representa o local onde será escrita a variável float  "pib1"*/
+    printf("PIB: %.2f bilhões de reais\n", pib1); /* "%f" representa o local onde será escrita a variável float  "pib1"*/
 
     printf("Número de Pontos Turísticos: %d\n", pontosturisticos1); /* "%d" representa o local onde será escrita a variável inteira "pontosturisticos1" */
+
+    printf("Densidade Populacional: %.2f hab/km²\n", DensidadePopulacional1);
+
+    printf("PIB per Capita: %.2f reais\n", PibPercapta1);
+
+    
                           
     /* função printf utilizada para imprimir a saída dos dados, com "/n" para adicionar uma nova linha ao fim da mensagem.
       sintaxe: printf("texto exibido na tela", lista de argumentos)*/
@@ -118,11 +146,16 @@ int main() {  // função principal, necessária para iniciar a execução do pr
 
     printf("População: %d\n", populacao2); /* "%d" representa o local onde será escrita a variável inteira  "populacao2" */
 
-    printf("Área: %f\n", area2);  /* "%f" representa o local onde será escrita a variável float  "area2"*/
+    printf("Área: %.2f km²\n", area2);  /* "%f" representa o local onde será escrita a variável float  "area2"*/
 
-    printf("PIB: %f\n", pib2);  /* "%f" representa o local onde será escrita a variável float  "pib2"*/
+    printf("PIB: %.2f bilhões de reais\n", pib2);  /* "%f" representa o local onde será escrita a variável float  "pib2"*/
 
     printf("Número de Pontos Turísticos: %d\n", pontosturisticos2);  /* "%d" representa o local onde será escrita a variável inteira "pontosturisticos2" */
+
+    printf("Densidade Populacional: %.2f hab/km²\n", DensidadePopulacional2);
+    printf("PIB per Capita: %.2f reais\n", PibPercapta2);
+
+    
 
    
 
