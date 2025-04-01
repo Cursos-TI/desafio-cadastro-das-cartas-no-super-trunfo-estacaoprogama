@@ -8,12 +8,16 @@ int main() {  // função principal, necessária para iniciar a execução do pr
     char codigocarta2[4]; // Declara uma variável de caractere chamada "codigocarta2" com 4 caracteres para armazenar a identificação do código de uma carta.
     char cidade1[20];  // Declara uma variável de caractere chamada "cidade1" com 20 caracteres para armazenar a identificação de uma cidade.
     char cidade2[20];  // Declara uma variável de caractere chamada "cidade2" com 20 caracteres para armazenar a identificação de uma cidade.
+    float superPoderCarta1, superPoderCarta2;  // delcara uma variável tipo float chamada "superPoder" para armazenar a soma dos atributos das cartas.;
     
-
     /* Declara 4 variáveis inteiras chamada: "populacao1", "populacao2", "pontosturisticos1", "pontosturisticos2", respectivamente para a identificação
-    de população e pontos turísticos com números inteiros.*/
+    de população e pontos turísticos com números inteiros.
+    
+    Aumenta a capacidade de armazenmento da variável população1 e população2 */
 
-    int populacao1, populacao2, pontosturisticos1, pontosturisticos2;
+    unsigned long int populacao1, populacao2;
+    
+    int pontosturisticos1, pontosturisticos2;
 
      // Declara 4 variáveis de ponto flutuante chamadas "area1", "area2", "pib1", "pib2" para a identificação da área e do PIB respectivamente, com números decimais.
 
@@ -27,18 +31,28 @@ int main() {  // função principal, necessária para iniciar a execução do pr
 
     float PibPercapta1, PibPercapta2; 
 
+    // Delcara variáveis de comparação de atributos das cartas.
+
+    int resultadoPopulacao;
+    int resultadoArea;
+    int resultadoPib;
+    int resultadoPontosTuristicos;
+    int resultadoDensidadePopulacional;
+    int resultadoPibPercapita;
+    int resultadoSuperPoder;    
+
     // função printf para exibir o texto formatado entre aspas na tela e "/n" para adicionar uma nova linha ao fim da mensagem.
     
     printf("Cadastro das Cartas\n"); 
 
-    printf("Carta 1: \n");
+    printf("\nCarta 1: \n");
          
     printf("Digite uma letra de A a H referente ao estado: "); // função printf utilizada para exibir o texto formatado entre as aspas na tela.
     scanf(" %c", &estado1); /* função scanf utilizada para fazer a leitura de dados formatados via teclado. (entrada de dados)
                              O valor lido será armazenado no endereço da variável de caractere chamada "estado1". */
 
     printf("Digite o código da carta: "); // função printf utilizada para exibir o texto que está entre aspas na tela.
-    scanf("%s", codigocarta1);  /* função scanf utilizada para fazer a leitura de dados formatados via teclado. (entrada de dados)
+    scanf("%s", &codigocarta1);  /* função scanf utilizada para fazer a leitura de dados formatados via teclado. (entrada de dados)
                                   O valor lido será armazenado no endereço da variável de caractere chamada "codigocarta1". */
 
     printf("Digite a Cidade: ");  // função printf utilizada para exibir o texto que está entre aspas na tela.
@@ -46,7 +60,7 @@ int main() {  // função principal, necessária para iniciar a execução do pr
                             O valor lido será armazenado no endereço da variável de caractere chamada "cidade1". */
 
     printf("Digite a população: ");  // função printf utilizada para exibir o texto que está entre aspas na tela.
-    scanf("%d", &populacao1); /* função scanf utilizada para fazer a leitura de dados formatados via teclado. (entrada de dados)
+    scanf("%lu", &populacao1); /* função scanf utilizada para fazer a leitura de dados formatados via teclado. (entrada de dados)
                                O valor lido será armazenado no endereço da variável inteira chamada "pupulacao1". */ 
 
     printf("Digite a área em km²: ");  // função printf utilizada para exibir o texto que está entre aspas na tela.
@@ -63,22 +77,22 @@ int main() {  // função principal, necessária para iniciar a execução do pr
       
      // função printf para exibir o texto formatado entre aspas na tela e "/n" para adicionar uma nova linha ao fim da mensagem.                              
 
-    printf("Carta 2: \n");
+    printf("\nCarta 2: \n");
 
     printf("Digite uma letra de A a H referente ao estado: ");  // função printf utilizada para exibir o texto que está formatado entre as aspas na tela.
     scanf(" %c", &estado2);  /* função scanf utilizada para fazer a leitura de dados formatados via teclado. (entrada de dados)
                               O valor lido será armazenado no endereço da variável de caractere chamada "estado2". */ 
 
     printf("Digite o código da carta: ");  // função printf utilizada para exibir o texto que está entre aspas na tela.
-    scanf("%s", codigocarta2);   /* função scanf utilizada para fazer a leitura de dados formatados via teclado. (entrada de dados)
+    scanf("%s", &codigocarta2);   /* função scanf utilizada para fazer a leitura de dados formatados via teclado. (entrada de dados)
                                   O valor lido será armazenado no endereço da variável de caractere chamada "codigocarta2". */
 
     printf("Digite a Cidade: ");  // função printf utilizada para exibir o texto que está entre aspas na tela.
-    scanf("%s", cidade2);  /* função scanf utilizada para fazer a leitura de dados formatados via teclado. (entrada de dados)
+    scanf("%s", &cidade2);  /* função scanf utilizada para fazer a leitura de dados formatados via teclado. (entrada de dados)
                             O valor lido será armazenado no endereço da variável de caractere chamada "cidade2". */
 
     printf("Digite a população: ");  // função printf utilizada para exibir o texto que está entre aspas na tela.
-    scanf("%d", &populacao2);  /* função scanf utilizada para fazer a leitura de dados formatados via teclado.  (entrada de dados)
+    scanf("%lu", &populacao2);  /* função scanf utilizada para fazer a leitura de dados formatados via teclado.  (entrada de dados)
                                 O valor lido será armazenado no endereço da variável inteira chamada "pupulacao2". */ 
 
     printf("Digite a área em km²: ");  // função printf utilizada para exibir o texto que está entre aspas na tela.
@@ -95,21 +109,42 @@ int main() {  // função principal, necessária para iniciar a execução do pr
 
     // cálcula a densidadade populacional.
     
-    DensidadePopulacional1 =  populacao1 / area1;
+    DensidadePopulacional1 = populacao1 / area1;
 
     DensidadePopulacional2 = populacao2 / area2;
 
     // calcula o PIB per Capita.
 
-    PibPercapta1 = pib1 / populacao1;
+    PibPercapta1 = pib1 / (float)populacao1;
 
-    PibPercapta2 = pib2 / populacao2;
+    PibPercapta2 = pib2 / (float)populacao2;
+
+    // calcula o valor das variáveis superPoderCarta1  e SuperPoderCarta2.
+
+    superPoderCarta1 = populacao1 + area1 + pib1 + pontosturisticos1 + PibPercapta1 + (1 / DensidadePopulacional1);
+
+    superPoderCarta2 = populacao2 + area2 + pib2 + pontosturisticos2 + PibPercapta2 + (1 / DensidadePopulacional2);
+
+    // Calcula o resultado da comparação dos atributos das cartas.
+
+    resultadoPopulacao = populacao1 > populacao2;
+
+    resultadoArea = area1 > area2;
+
+    resultadoPib = pib1 > pib2;
+
+    resultadoPontosTuristicos = pontosturisticos2 > pontosturisticos2;
+
+    resultadoDensidadePopulacional = DensidadePopulacional1 > DensidadePopulacional2;
+
+    resultadoPibPercapita = PibPercapta1 > PibPercapta2;
+
+    resultadoSuperPoder = superPoderCarta1 > superPoderCarta2;
+
     
-
-
     // função printf para exibir o texto formatado entre aspas na tela e "/n" para adicionar uma nova linha ao fim da mensagem.                     
                                        
-    printf("Carta 1: \n");
+    printf("\nCarta 1: \n");
 
     /* função printf utilizada para imprimir a saída dos dados, com "/n" para adicionar uma nova linha ao fim da mensagem.
       sintaxe: printf("texto exibido na tela", lista de argumentos)*/
@@ -120,7 +155,7 @@ int main() {  // função principal, necessária para iniciar a execução do pr
                                          
     printf("Nome da cidade: %s\n", cidade1); // "%s" representa o local onde será escrita a variável caractere "cidade1" 
                                            
-    printf("População: %d\n", populacao1); // "%d" representa o local onde será escrita a variável inteira  "populacao1" 
+    printf("População: %lu\n", populacao1); // "%d" representa o local onde será escrita a variável inteira  "populacao1" 
                                             
     printf("Área: %.2f km²\n", area1); // "%f" representa o local onde será escrita a variável float  "area1"
                                 
@@ -137,7 +172,7 @@ int main() {  // função principal, necessária para iniciar a execução do pr
     /* função printf utilizada para imprimir a saída dos dados, com "/n" para adicionar uma nova linha ao fim da mensagem.
       sintaxe: printf("texto exibido na tela", lista de argumentos)*/
 
-    printf("Carta 2: \n"); 
+    printf("\nCarta 2: \n"); 
   
     printf("Estado: %c\n", estado2);  /* "%c" representa o local onde será escrita a variável caractere "estado2" */
 
@@ -145,7 +180,7 @@ int main() {  // função principal, necessária para iniciar a execução do pr
 
     printf("Nome da cidade: %s\n", cidade2);  /* "%s" representa o local onde será escrita a variável caractere "cidade2" */
 
-    printf("População: %d\n", populacao2); /* "%d" representa o local onde será escrita a variável inteira  "populacao2" */
+    printf("População: %lu\n", populacao2); /* "%d" representa o local onde será escrita a variável inteira  "populacao2" */
 
     printf("Área: %.2f km²\n", area2);  /* "%f" representa o local onde será escrita a variável float  "area2"*/
 
@@ -157,12 +192,19 @@ int main() {  // função principal, necessária para iniciar a execução do pr
     
     printf("PIB per Capita: %.2f reais\n", PibPercapta2); // Insere a variável PibPercapita2 com 2 casas decimais
 
-    
+    // função pintf para imprimir o resultado das comparações dos atributos.
 
-   
+    printf("\nComparação das Cartas\n");
 
-    
-    
+    // Se o resutado for "1", venceu a carta 1, mas se o resultado for "0", venceu a carta 2.
+
+    printf("\nPopulação: %d\n", resultadoPopulacao);
+    printf("Área: %d\n", resultadoArea );
+    printf("PIB: %d\n", resultadoPib);
+    printf("Pontos Turísticos: %d\n", resultadoPontosTuristicos);
+    printf("Densidade Populacional: %d\n", resultadoDensidadePopulacional);
+    printf("PIB per capita: %d\n", resultadoPibPercapita);
+    printf("Super Poder: %d\n", resultadoSuperPoder); 
 
     return 0; // Fim do programa, indicando que o programa terminou com sucesso.
     
